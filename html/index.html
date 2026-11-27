@@ -7,43 +7,145 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <!--Any text or headings that don't have classes either will get affected by being a descendant or i personally like to just directly call things by doing like nav > a-->
     <header>
-        <img src="" alt="Company logo: 3 stars in varying size that are a light, pale yellow, over a deeper more orange yellow"> <!--Logo for the page-->
+        <img src="/media/logo.png" alt="Company logo: 3 stars in varying size that are a light, pale yellow, over a deeper more orange yellow"> <!--Logo for the page-->
         <nav> <!--Will be a flex container as to have equal distancing between everything, and to make it so the logo doesn't look like it's part of the nav-->
             <a href="index.html">Home</a> <!--Anchor for each section, will have a padding so each are the same size, and not just text-->
             <a href="#about-section">About Us</a> <!--Each anchor leads to a part of the page, since the assignment is single paged-->
             <a href="#services-section">Services</a>
             <a href="#team-section">Team</a>
             <a href="#contact-section">Contact</a>
-            <form class="search" action="/search"> <!--might need more properties to be correct later-->
-                <input type="text" placeholder="Search"> <!--"" ^-->
-                <button type="submit"> <!--"" ^-->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><title>magnify</title><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+            <form class="search" role="search" action="/search" method="get">
+                <label for="site-search" class="visually-hidden">Search</label>
+                <input type="search" id="site-search" name="q" placeholder="Search">
+                <button type="submit" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
                     <!--SVG from pictrogrammers https://pictogrammers.com/library/mdi/icon/magnify/-->
                 </button>
             </form>
         </nav>
     </header>
-    <section class="landing">
-        <img> <!--Background image of this section, will take up full space, and things postioned above it-->
+    <!--Everything after the header should have equal margins/padding to keep that gap along both sides of the screen-->
+    <section class="landing" id="landing-section">
+        <img src="/media/main-banner.jpg" alt="A modern bright office space with two meeting rooms in the background and the foreground filled with desks and chairs"> <!--Background image of this section, will take up full space, and things postioned above it-->
+        <!-- instead of this as the background by positioning text over it i could set this sections background to the image -->
+        <div> <!--since the image is the background and there is an obvious gap between the container for the h1 and image this div is needed-->
+            <h1>Welcome to Three Star Media</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate similique earum, suscipit maxime non labore fuga, cum voluptates, dolore incidunt soluta fugit expedita inventore asperiores at aperiam nulla molestiae. Eveniet.</p>
+            <a href="#contact-section">Connect with us</a> <!--An svg for the arrow here may be the best bet, but if i used a button and not an anchor then it would require JS code outside the scope of this, so an anchor to look like a button is our best bet-->
+        </div>
     </section>
     <section class="about" id="about-section">
-        
-    </section> <!--A grid display to hold the items in a 2 on the top and 3 on the bottom way, but might have to be changed using media queries so it displays one on top of the other for mobile-->
-    <section class="services" id="services-section">
-
+        <img src="/media/about-us.jpg" alt="A pingpong table in the foreground of what appears to be an office with a seating area in the back">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis officia quaerat commodi eaque, blanditiis sed veritatis quod hic fugit eius rem reprehenderit officiis placeat odit dolorum deleniti asperiores, ipsum perspiciatis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quibusdam aliquam in. Quo beatae molestias, voluptates illo eligendi ut, illum libero harum in natus non inventore, neque atque quisquam hic?</p>
+    </section> 
+    <section class="services" id="services-section"> <!--A grid display to hold the items in a 2 on the top and 3 on the bottom way, but might have to be changed using media queries so it displays one on top of the other for mobile-->
+        <h2>Our Services</h2>
+        <article> <!--Flex display, have the image take up the entire width of each section, then absolute position the image or negative margins so the padding doesn't affect it-->
+            <img src="/media/digital.jpg" alt="Over the shoulder shot of something using a computer with their left hand while using their phone with the right">
+            <h3>Digital Transformation</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat impedit, at modi aliquid consectetur qui rem magnam ipsam ipsa hic tempora iusto assumenda tenetur, eum et nulla ad error ducimus.</p>
+            <a href="#landing-section">Digital Plans</a> <!--Since these dont have their own pages i'm gonna lead it back to the landing page rather than leaving it empty, but using the anchor allows me to have hover states and stuff, and it can be changed to a new page in the future-->
+        </article>
+        <article>
+            <img src="/media/marketing.jpg" alt="A laptop with analytics on the screen ontop of a glass table">
+            <h3>Marketing</h3>
+            <p>Fugiat non amet quam? Dolor rerum in amet natus quibusdam veniam alias enim eveniet commodi. Impedit voluptatem officia mollitia explicabo neque animi cum molestiae ipsum architecto saepe, repellendus minima unde?</p>
+            <a href="#landing-section">Marketing Plans</a>
+        </article>
+        <article>
+            <img src="/media/video.jpg" alt="A person holding a phone with the youtube logo in the center over a white background">
+            <h3>Video Production</h3>
+            <p>Quia voluptas totam impedit explicabo eligendi omnis minima laboriosam iste nemo exercitationem nulla facere, quos laborum iure. Vel doloribus et laborum hic qui. Rerum ullam, dolorum cumque beatae nobis unde?</p>
+            <a href="#landing-section">Video Plans</a>
+        </article>
+        <article>
+            <img src="/media/web.jpg" alt="A phone and pen ontop of a blue notebook on a table">
+            <h3>Web Development</h3>
+            <p>Omnis earum delectus quasi voluptate repudiandae neque harum. Temporibus nobis dolorum expedita repellat, odit voluptas quasi. Ipsam, libero consectetur eveniet recusandae sunt, soluta expedita veniam explicabo praesentium maxime laboriosam iusto.</p>
+            <a href="#landing-section">Web Plans</a>
+        </article>
+        <article>
+            <img src="/media/print.jpg" alt="A row of different colors of 6 newspaper dispensers on a street">
+            <h3>Print</h3>
+            <p>Voluptatibus accusamus modi tempora debitis, sapiente et repellendus at, magni optio dolore suscipit perferendis blanditiis hic illum velit quibusdam doloribus, vitae iusto! Accusantium omnis beatae nostrum magnam soluta officiis dolor!</p>
+            <a href="#landing-section">Print Plans</a>
+        </article>
     </section>
-    <section class ="cta"> <!-- The our vision section in the example, looks like a call to action -->
-        
+    <section class ="cta"> <!-- The our vision section in the example, looks like a call to action, for this setting the background to the image (vision.jpg) is 100% better -->
+        <h3>Our vision</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro explicabo accusantium nostrum dolores magnam voluptates inventore sequi, assumenda fugit ducimus. A pariatur ratione officia corporis odio fugit tempore quos aperiam.</p>
+        <a href="#landing-section">Learn More</a> <!--Same issue with the services, so just a reroute to the top-->
     </section> 
     <section class="team" id="team-section">
-        
+        <h2>Our Team</h2>
+        <article>
+            <img src="/media/john.jpg" alt="An african american male with short black hair with a raised eyebrow expression in a colorful blue and pink striped shirt with a graffiti backdrop">
+            <div>
+                <h3>John Doe</h3>
+                <h4>CEO and Co-owner</h4> <!--Border bottom to get the line across for here-->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores vel nesciunt iure? Aliquam, illo expedita ratione totam, repudiandae itaque quae ad, accusamus velit fugit odio enim! Voluptate eaque quos soluta.</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <h3>Bob Rite</h3>
+                <h4>CEO and Co-owner</h4> <!--Border bottom to get the line across for here-->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores vel nesciunt iure? Aliquam, illo expedita ratione totam, repudiandae itaque quae ad, accusamus velit fugit odio enim! Voluptate eaque quos soluta.</p>
+            </div>
+            <img src="/media/bob.jpg" alt="A caucasian male with short black hair swept to the side, who has a beard and glasses and a slightly darker complexion wearing a black t-shirt with a grey and white plaid button up over it with a white brick wall behind">
+        </article>
     </section>
-    <section class="contact" id="contact-section"> <!--Similar to services, arranged in a way where hours appears on the bottom, but then in the middle on mobile using media queries-->
-        <!--table that displays hours of operations-->
+    <section class="contact" id="contact-section"> <!--Similar to services, arranged in a way where hours appears on the bottom, but then in the middle on mobile using media queries, on desktop this will use a grid to display each differently-->
+        <h2>Contact Us</h2>
+        <div>
+            <h3>Send us a message</h3>
+            <form action="#" method="post">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full_name" autocomplete="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="8" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div>
+            <h3>Location</h3>
+            <iframe src="https://maps.google.com/maps?q=Algonquin+College+Woodroffe+Ave+Nepean&output=embed"></iframe>
+            <!--Not sure we learnt this so the google maps imbed is from my own googling on how to do-->
+        </div>
+        <div>
+            <h3>Hours of operations</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th scope="col">Days</th>
+                    <th scope="col">Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Monday - Friday</td>
+                    <td>9 AM - 6 PM</td>
+                    </tr>
+                    <tr>
+                    <td>Saturday - Sunday</td>
+                    <td>Closed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
     <footer>
-
+        <p>&copy; Copyright Three Star Media, 2020</p>
+        <p>All images are taken from <a href="https://unsplash.com/">Unsplash</a></p>
     </footer>
 </body>
 </html>
